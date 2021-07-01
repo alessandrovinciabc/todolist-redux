@@ -18,10 +18,11 @@ const todoSlice = createSlice({
       state.todos.push(action.payload.item);
     },
     remove(state, action) {
-      state.todos = state.todos.filter((item) => item.id !== action.id);
+      state.todos = state.todos.filter((item) => item.id !== action.payload.id);
     },
     toggle(state, action) {
-      let todoToChange = state.todos.find((el) => el.id === action.id);
+      console.log(action.payload.id);
+      let todoToChange = state.todos.find((el) => el.id === action.payload.id);
       todoToChange.done = !todoToChange.done;
     },
   },

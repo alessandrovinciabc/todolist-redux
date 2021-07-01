@@ -23,10 +23,29 @@ function TodoList() {
     setTodoInput('');
   }
 
+  function handleToggle(id) {
+    dispatch(toggle({ id }));
+  }
+
+  function handleDelete(id) {
+    dispatch(remove({ id }));
+  }
+
   return (
     <div className="TodoList">
       {todos.map((todo) => {
-        return <TodoItem key={todo.id} data={todo} />;
+        return (
+          <TodoItem
+            key={todo.id}
+            data={todo}
+            onClick={() => {
+              handleToggle(todo.id);
+            }}
+            onDelete={() => {
+              handleDelete(todo.id);
+            }}
+          />
+        );
       })}
 
       <form onSubmit={handleSubmit}>
