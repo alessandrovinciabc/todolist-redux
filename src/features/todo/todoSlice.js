@@ -1,7 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  todos: [],
+  todos: [
+    {
+      title: 'Read a book',
+      done: false,
+      id: 'banana',
+    },
+  ],
 };
 
 const todoSlice = createSlice({
